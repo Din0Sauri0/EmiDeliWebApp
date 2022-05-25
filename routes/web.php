@@ -25,3 +25,6 @@ Route::get('/login', function(){
     return view('emideli.login');
 });
 
+Route::get('/registro_cliente', function(){
+    return view('emideli.registrar_cliente');
+});
