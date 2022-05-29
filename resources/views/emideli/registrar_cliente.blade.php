@@ -9,7 +9,7 @@ Agregar cliente
 <nav class="navbar navbar-expand-lg navbar-light" style="max-height: 70px; background-color: #E78EA9;">
     <div class="container-fluid">
         <a href="#">
-            <img src="{{ asset('img/Logo.png') }}" style=" border-color: #eee;padding: 0px; margin: 0px; height: 150px; width: 200px;">
+            <img src="{{ asset('img/Logo.png') }}" style=" border-color: #eee;padding: 0px; margin: 0px; height: 45px; width: 130px;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
