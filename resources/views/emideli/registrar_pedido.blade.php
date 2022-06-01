@@ -74,10 +74,20 @@ Agregar Pedido
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form method='post'>
+                        @csrf
                         <div class="mb-3">
-                            <label for="nombre" class="form-label">Tipo</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre"> <!-- cambiar por chexbox o combobox -->
+                            <label for="contacto" class="form-label">Cliente</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-text">
+                                    <input class="form-check-input mt-0" type="checkbox" value="" id="type_field">
+                                </div>
+                                <input type="text" class="form-control" name="nombre" id="name_client_txt">
+                            </div>
+                            <select class="form-select" name="nombre" id="name_client_dropbox">
+                                <option value="invalid">--Selecciones una opcion--</option>
+                                //*insetar option desde la base de datos
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="contacto" class="form-label">Abono</label>
@@ -110,5 +120,9 @@ Agregar Pedido
         </div>
     </div>
 </div>
+
+
+
+<script src="{{ asset("js/disable_field.js") }}"></script>
 
 @endsection
