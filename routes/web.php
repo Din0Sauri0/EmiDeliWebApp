@@ -1,6 +1,13 @@
 <?php
 
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\GananciaController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +24,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/registro_pedido', function(){
-    return view('emideli.registrar_pedido');
-});
 
-Route::get('/login', function(){
-    return view('emideli.login');
-});
 
-Route::get('/registro_cliente', function(){
-    return view('emideli.registrar_cliente');
-});
+Route::get('/login', [UserController::class, 'index']);
+
+Route::get('/pedido/registro', [PedidoController::class, 'create']);
+Route::post('/pedido/prueba', [PedidoController::class, 'store'])->name('prueba');
+/*Route::controller(PedidoController::class)->group(function(){
+    Route::get('/registro_pedido', [PedidoController::class, 'create']);
+});*/
+
+Route::get('/cliente/registro',[ClienteController::class, 'create']);
+Route::post('/cliente/prueba', [ClienteController::class, 'store'])->name('prueba1');
+
+/*Route::controller(ClienteController::class)->group(function(){
+    Route::get('/registro_cliente', [ClienteController::class, 'create']);
+});*/
