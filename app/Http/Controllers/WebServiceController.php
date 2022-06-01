@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 //? modelos
 use App\Models\Cliente;
 use App\Models\User;
+use GuzzleHttp\RetryMiddleware;
+use Illuminate\Support\Facades\Auth;
 
 class WebServiceController extends Controller
 {
@@ -28,9 +30,12 @@ class WebServiceController extends Controller
     }
 
     public function validate_user(Request $request){
-        $username = $request->usuario;
-        $password = $request->password;
+        $credentials = $request->only('email', 'password');
 
-        return 'validate_user';
+        if(Auth::attempt($credentials)){
+            return $credentials;
+        }
+
+        return false;
     }
 }

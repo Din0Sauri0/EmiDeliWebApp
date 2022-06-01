@@ -11,6 +11,7 @@ checkbox.addEventListener('change', () =>{
         return;
     }
     name_client_txt.disabled = true;
+    name_client_txt.value = '';
     dropdown.disabled = false;
 
 })

@@ -6,6 +6,7 @@ use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GananciaController;
+use App\Http\Controllers\WebServiceController;
 
 
 
@@ -40,3 +41,7 @@ Route::post('/cliente/prueba', [ClienteController::class, 'store'])->name('prueb
 /*Route::controller(ClienteController::class)->group(function(){
     Route::get('/registro_cliente', [ClienteController::class, 'create']);
 });*/
+
+Route::controller(WebServiceController::class)->group(function(){
+    Route::get('/webservice/clients', 'get_clients');
+});
