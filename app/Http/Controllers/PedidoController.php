@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 
 class PedidoController extends Controller
 {
-    public function create(){
+    public function index(){
         return view('emideli.registrar_pedido');
     }
 
-    public function store(Request $request){
+    public function create(Request $request){
         $pedido = new Pedido();
 
 
@@ -24,5 +24,7 @@ class PedidoController extends Controller
         $pedido->descripcion = $request->descripcion;
 
         $pedido->save();
+
+        return view ('emideli.registrar_pedido');
     }
 }

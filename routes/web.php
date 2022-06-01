@@ -29,18 +29,18 @@ Route::get('/', function () {
 
 Route::get('/login', [UserController::class, 'index']);
 
-Route::get('/pedido/registro', [PedidoController::class, 'create']);
-Route::post('/pedido/prueba', [PedidoController::class, 'store'])->name('prueba');
-/*Route::controller(PedidoController::class)->group(function(){
-    Route::get('/registro_pedido', [PedidoController::class, 'create']);
-});*/
 
-Route::get('/cliente/registro',[ClienteController::class, 'create']);
-Route::post('/cliente/prueba', [ClienteController::class, 'store'])->name('prueba1');
+Route::controller(PedidoController::class)->group(function(){
+    Route::get('/pedido', [PedidoController::class, 'index']);
+    Route::post('/pedido/registro', [PedidoController::class, 'create'])->name('registro_pedido');
+});
 
-/*Route::controller(ClienteController::class)->group(function(){
-    Route::get('/registro_cliente', [ClienteController::class, 'create']);
-});*/
+
+
+Route::controller(ClienteController::class)->group(function(){
+    Route::get('/cliente',[ClienteController::class, 'index']);
+    Route::post('/cliente/registro', [ClienteController::class, 'create'])->name('registro_cliente');
+});
 
 Route::controller(WebServiceController::class)->group(function(){
     Route::get('/webservice/clients', 'get_clients');
