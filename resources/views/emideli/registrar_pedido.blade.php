@@ -8,9 +8,8 @@ Agregar Pedido
 <!-- ! recordar borrar la navbar -->
 <nav class="navbar navbar-expand-lg navbar-light" style="max-height: 70px; background-color: #E78EA9;">
     <div class="container-fluid">
-        <!-- modificar el logo -->
         <a href="#">
-            <img src="{{ asset('img/Logo.png') }}" style=" border-color: #eee; height: 100px; width: 200px;">
+            <img src="{{ asset('img/Logo.png') }}" style=" border-color: #eee;padding: 0px; margin: 0px; height: 45px; width: 130px;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -45,7 +44,7 @@ Agregar Pedido
                 Agendar Pedido
             </button>
         </div>
-        <div class="col card m-1" style="max-width: 300px;">
+        <!-- <div class="col card m-1" style="max-width: 300px;">
             <div class="card-body">
                 This is some text within a card body.
             </div>
@@ -55,15 +54,11 @@ Agregar Pedido
             <div class="card-body">
                 This is some text within a card body.
             </div>
-        </div>
+        </div> -->
     </div>
 
-
-
-
-
-
-
+    <!-- //*Carga el calendrio -->
+    <div id="fullcalendar" class="mb-3 p-3" style="border: none; box-shadow: 2px 2px 5px #999; background-color: #FFC4DD; border-radius: 5px;"></div>
 
     <!-- Modal -->
     <div class="modal fade modal-dialog-scrollable" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
