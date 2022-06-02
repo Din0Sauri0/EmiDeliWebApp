@@ -25,9 +25,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::controller(UserController::class)->group(function(){
+    Route::get('/login', [UserController::class, 'index']);
+    Route::post('/login/ingresar',[UserController::class, 'login'])->name('login');
+    
+});
 
-
-Route::get('/login', [UserController::class, 'index']);
 
 
 Route::controller(PedidoController::class)->group(function(){
