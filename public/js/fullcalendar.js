@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
             right: 'dayGridMonth,listWeek'
         },
         events: "http://127.0.0.1:8000/pedido/cargar",
-
+        eventColor: '#7FB5FF',
     });
     calendar.render();
 });
