@@ -198,6 +198,9 @@ Agregar cliente
             </div>
             <div class="modal-body">
                 <form action="{{ route('registro_cliente') }}" method='POST'>
+
+                    @csrf
+                    
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="nombre" name="nombre">
