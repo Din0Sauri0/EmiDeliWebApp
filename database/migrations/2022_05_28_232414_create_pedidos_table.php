@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
             $table->string('tipo_pedido', 100);
-            $table->string('nombre_cliente', 45);
+            $table->string('title', 45); //! OJO: Esto corresponde al nombre del cliente 
             $table->integer('abono');
-            $table->date('fecha_entrega');
+            $table->date('start');
+            $table->date('end');
             $table->string('imagen')->nullable();
             $table->integer('total');
             $table->text('descripcion');

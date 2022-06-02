@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
             center: 'title',
             right: 'dayGridMonth,listWeek'
         },
-
+        events: "http://127.0.0.1:8000/pedido/cargar",
 
     });
     calendar.render();

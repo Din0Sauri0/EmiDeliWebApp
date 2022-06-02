@@ -16,15 +16,22 @@ class PedidoController extends Controller
 
 
         $pedido->tipo_pedido = $request->tipo_pedido;
-        $pedido->nombre_cliente = $request->nombre_cliente;
+        $pedido->title = $request->nombre_cliente;
         $pedido->abono = $request->abono;
-        $pedido->fecha_entrega = $request->fecha_entrega;
+        $pedido->start = $request->fecha_entrega;
+        $pedido->end = $request->fecha_entrega;
         $pedido->imagen = $request->imagen;
         $pedido->total = $request->total_pedido;
         $pedido->descripcion = $request->descripcion;
 
         $pedido->save();
 
-        return view ('emideli.registrar_pedido');
+        return redirect('/pedido');
+    }
+
+    public function show(){
+        $pedidos = Pedido::all();
+        return $pedidos;
+
     }
 }
