@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -13,7 +14,10 @@ class UserController extends Controller
     public function login(){
         $credentials = request()->only('email','password');
 
-        dump ($credentials);
-       /* return redirect('/pedido');*/
+        if (Auth::attempt($credentials)){
+            request()->session()->regenerate();
+            return redirect('/pedido');
+        }
+        return redirect('/login');
     }
 }
