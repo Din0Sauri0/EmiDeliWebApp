@@ -12,7 +12,8 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        'http://127.0.0.1:8000/webservice/clients',
-        'http://127.0.0.1:8000/webservice/user'
+        '/webservice/clients/add',
+        '/webservice/user',
+        '/webservice/user/validate'
     ];
 }

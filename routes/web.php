@@ -48,4 +48,6 @@ Route::controller(ClienteController::class)->group(function(){
 
 Route::controller(WebServiceController::class)->group(function(){
     Route::get('/webservice/clients', 'get_clients');
+    Route::post('/webservice/clients/add','add_clients');
+    Route::post('/webservice/user/validate','validate_user');
 });
