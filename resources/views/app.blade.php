@@ -24,7 +24,7 @@
     @guest
 
     @else
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFBBBB;">
+    <nav class="navbar navbar-expand-lg navbar-light" style="min-height: 70px; background-color: #E78EA9;">
         <div class="container-fluid">
             <a href="#">
                 <img src="{{ asset('img/Logo.png') }}" style="height: 60px;">
@@ -35,20 +35,18 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" aria-current="page" href="{{ route('pedido') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link" href="{{ route('cliente') }}">Clientes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link" href="#">Ganancias</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cerrar sesion</a>
                     </li>
+                   
                 </ul>
             </div>
         </div>
