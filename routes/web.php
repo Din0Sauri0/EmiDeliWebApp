@@ -26,14 +26,14 @@ Route::get('/', function () {
 });
 
 Route::controller(UserController::class)->group(function(){
-    Route::get('/login', [UserController::class, 'index']);
-    Route::post('/login/ingresar',[UserController::class, 'login'])->name('login');
+    Route::get('/login', [UserController::class, 'index'])->name('login')->middleware('guest');
+    Route::post('/login',[UserController::class, 'login'])->name('login_ingresar')->middleware('guest');
     
 });
 
 
 
-Route::controller(PedidoController::class)->group(function(){
+Route::controller(PedidoController::class)->middleware('auth')->group(function(){
     Route::get('/pedido', [PedidoController::class, 'index']);
     Route::get('/pedido/cargar', [PedidoController::class, 'show']);
     Route::post('/pedido/registro', [PedidoController::class, 'create'])->name('registro_pedido');
@@ -41,7 +41,7 @@ Route::controller(PedidoController::class)->group(function(){
 
 
 
-Route::controller(ClienteController::class)->group(function(){
+Route::controller(ClienteController::class)->middleware('auth')->group(function(){
     Route::get('/cliente',[ClienteController::class, 'index']);
     Route::post('/cliente/registro', [ClienteController::class, 'create'])->name('registro_cliente');
 });

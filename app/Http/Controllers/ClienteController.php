@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
 use Illuminate\Http\Request;
+
 
 class ClienteController extends Controller
 {
-    public function create(){
+    public function index(){
         return view ('emideli.registrar_cliente');
     }
-    public function store(){
+    public function create(Request $request){
         $cliente = new Cliente();
 
         $cliente->nombre = $request->nombre;
