@@ -27,7 +27,7 @@
     <nav class="navbar navbar-expand-lg navbar-light" style="min-height: 70px; background-color: #E78EA9;">
         <div class="container-fluid">
             <a href="#">
-                <img src="{{ asset('img/Logo.png') }}" style="height: 60px;">
+                <img src="{{ asset('img/Logo.png') }}" style="height: 50px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
