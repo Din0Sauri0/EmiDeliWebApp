@@ -14,10 +14,12 @@ class UserController extends Controller
     public function login(){
         $credentials = request()->only('email','password');
 
-        if (Auth::attempt($credentials)){
+        $remember = request()->filled('remember');
+
+        if (Auth::attempt($credentials, $remember)){
             request()->session()->regenerate();
-            return redirect('/pedido');
+            return redirect()->route('pedido');
         }
-        return redirect('/login');
+        return redirect()->route('login');
     }
 }
