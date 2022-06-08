@@ -16,6 +16,8 @@ Agregar Pedido
         </div>
     </div>
 
+
+
     <!-- //*Carga el calendrio -->
     <div id="fullcalendar" class="mb-3 p-3" style="border: none; box-shadow: 2px 2px 5px #999; background-color: #FFC4DD; border-radius: 5px;"></div>
 
@@ -48,6 +50,9 @@ Agregar Pedido
                             </div>
                             <select class="form-select" name="nombre_cliente" id="name_client_dropbox">
                                 <option value="invalid">--Selecciones una opcion--</option>
+                                @foreach ($clients->all() as $client)
+                                <option value="{{$client->id}}">{{$client->nombre}}</option>
+                                @endforeach
                                 //TODO insetar option desde la base de datos
                             </select>
                         </div>
