@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('fullcalendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
 
+        themeSystem: 'bootstrap5',
         initialView: 'dayGridMonth',
         locale: 'es',
         headerToolbar: {

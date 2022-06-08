@@ -1,3 +1,44 @@
-body{
-    background-color:red;
+/* body style */
+.bg-color{
+    background-color: #E4AEC5;
+}
+
+.bg-height{
+    height: 100vh;
+}
+
+/* nav css */
+.nav-style{
+    min-height: 70px;
+    background-color: #E78EA9;
+}
+.nav-img{
+    height: 50px;
+}
+
+/* content css */
+.screen-height{
+    height: 100vh;
+}
+.content-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* .border-card{
+    border-radius: 15px;
+}
+.custom-shadow{
+    box-shadow: 2px 2px 5px #999;
+}
+.bg{
+    background-color: #FFC4DD;
+} */
+
+.login-img{
+    height: 100px;
+    width: 250px;
+}
+.login-width{
+    width: 300px;
 }

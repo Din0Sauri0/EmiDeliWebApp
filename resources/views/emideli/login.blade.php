@@ -6,13 +6,13 @@ Login
 
 @section('content')
 
-<section style="height: 100vh; display: flex; justify-content: center; align-items: center;">
+<section class="screen-height content-center">
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-6 col-xl-4">
                 <div class="card" style="border: none; box-shadow: 2px 2px 5px #999; background-color: #FFC4DD; border-radius: 15px;">
                     <div class="card-body d-flex flex-column align-items-center">
-                        <div class="mb-3"><img src="{{ asset('img/Logo.png') }}" alt="EmiDeli_Logo" style="height: 100px; width: 250px;"></div>
+                        <div class="mb-3"><img class="login-img" src="{{ asset('img/Logo.png') }}" alt="EmiDeli_Logo"></div>
 
                         <!-- @foreach ($errors->all() as $error)
 
@@ -23,7 +23,7 @@ Login
 
                         @endforeach -->
 
-                        <form class="text-center" style="width: 300px;" method="post" action="{{route('login_ingresar')}}">
+                        <form class="text-center login-width" method="post" action="{{route('login_ingresar')}}">
                             @csrf
 
                             <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email" style="border: 2px solid #FFBBBB;"></div>
