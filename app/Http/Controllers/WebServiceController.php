@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\Auth;
 class WebServiceController extends Controller
 {
     public function get_clients(){
-        $clients = Cliente::all();
 
+        $clients = Cliente::all();
         return $clients;
     }
 
@@ -30,13 +30,10 @@ class WebServiceController extends Controller
 
     public function validate_user(Request $request){
          
-        $credentials = request()->only('email','password');
+        $credentials = $request->only('email','password');
 
         if(Auth::attempt($credentials)){
             return $credentials;
         }
-        
-        return [];
-        
     }
 }
