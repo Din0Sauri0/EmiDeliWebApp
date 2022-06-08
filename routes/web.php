@@ -28,6 +28,8 @@ Route::get('/', function () {
 Route::controller(UserController::class)->group(function(){
     Route::get('/login', [UserController::class, 'index'])->name('login')->middleware('guest');
     Route::post('/login',[UserController::class, 'login'])->name('login_ingresar')->middleware('guest');
+
+    Route::post('/logout',[UserController::class, 'logout'])->name('logout');
     
 });
 

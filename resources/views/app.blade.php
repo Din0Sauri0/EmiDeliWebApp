@@ -44,7 +44,11 @@
                         <a class="nav-link" href="#">Ganancias</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cerrar sesion</a>
+                        <form action= "/logout" method="POST">
+                            @csrf
+                            <a class="nav-link" href="#" onclick= "this.closest('form').submit()">Cerrar sesion</a>
+                        </form>
+                        
                     </li>
                    
                 </ul>
