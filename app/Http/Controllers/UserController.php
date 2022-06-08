@@ -12,7 +12,10 @@ class UserController extends Controller
     }
 
     public function login(){
-        $credentials = request()->only('email','password');
+        $credentials = request()->validate([
+            'email' => ['required', 'email', 'string'],
+            'password' => ['required', 'string']
+        ]);
 
         $remember = request()->filled('remember');
 
