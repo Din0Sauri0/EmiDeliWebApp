@@ -32,7 +32,9 @@ Agregar cliente
                 </div>
             </div>
         </div>
+        
         <div class="col">
+
             <div class="card h-100" style="border: none; box-shadow: 2px 2px 5px #999; background-color: #FFC4DD; border-radius: 5px;">
                 <div class="card-header">
                     <h5 class="card-title">Nombre cliente</h5>

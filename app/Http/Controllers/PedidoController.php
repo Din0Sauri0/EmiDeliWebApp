@@ -6,8 +6,6 @@ use App\Models\Pedido;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
 
-use function PHPSTORM_META\type;
-
 class PedidoController extends Controller
 {
     public function index(){
