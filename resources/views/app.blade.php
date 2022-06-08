@@ -20,7 +20,7 @@
     <title>Emideli - @yield('title')</title>
 </head>
 
-<body style="background-color: #E4AEC5;">
+<body style="background-color: #E4AEC5; height: 100vh;">
     @guest
 
     @else
