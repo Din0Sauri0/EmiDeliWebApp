@@ -34,11 +34,12 @@ Agregar Pedido
                         @csrf
 
                         <!-- //TODO Agregar tipo pedido aqui -->
-                        <div class="mb-3">
-                            <label for="contacto" class="form-label">Tipo pedido</label>
-                            <input type="text" class="form-control" id="contacto" name="tipo_pedido">
-                        </div>
-                        
+                        <select class="form-select" name="nombre_cliente">
+                            <option selected disabled>--Selecciones una opcion--</option>
+                            <option value="Personalizada">Personalizada</option>
+                            <option value="Predeterminado">Predeterminado</option>
+                        </select>
+
                         <!-- //*Nombre cliente -->
                         <div class="mb-3">
                             <label for="contacto" class="form-label">Cliente</label>
@@ -49,7 +50,7 @@ Agregar Pedido
                                 <input type="text" class="form-control" name="nombre_cliente" id="name_client_txt">
                             </div>
                             <select class="form-select" name="nombre_cliente" id="name_client_dropbox">
-                                <option value="invalid">--Selecciones una opcion--</option>
+                                <option selected disabled>--Selecciones una opcion--</option>
                                 @foreach ($clients->all() as $client)
                                 <option value="{{$client->id}}">{{$client->nombre}}</option>
                                 @endforeach
