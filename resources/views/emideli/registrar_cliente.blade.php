@@ -17,143 +17,26 @@ Agregar cliente
     </div>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-            <div class="card h-100" style="border: none; box-shadow: 2px 2px 5px #999; background-color: #FFC4DD; border-radius: 5px;">
-                <div class="card-header">
-                    <h5 class="card-title">Nombre cliente</h5>
-                </div>
-                <div class="card-body class-title">
-                    <p class="card-text">Contacto</p>
-                    <div class="card-text">Dirección</div>
-                </div>
-                <div class="card-footer">
-                    <a href="#" style="background-color: #F47C7C; border: none; color: black; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-danger">Eliminar</a>
-                    <a href="#" style="background-color: #FFE59D; border: none; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-warning">Modificar</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col">
 
-            <div class="card h-100" style="border: none; box-shadow: 2px 2px 5px #999; background-color: #FFC4DD; border-radius: 5px;">
-                <div class="card-header">
-                    <h5 class="card-title">Nombre cliente</h5>
-                </div>
-                <div class="card-body class-title">
-                    <p class="card-text">Contacto</p>
-                    <div class="card-text">Dirección</div>
-                </div>
-                <div class="card-footer">
-                    <a href="#" style="background-color: #F47C7C; border: none; color: black; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-danger">Eliminar</a>
-                    <a href="#" style="background-color: #FFE59D; border: none; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-warning">Modificar</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100" style="border: none; box-shadow: 2px 2px 5px #999; background-color: #FFC4DD; border-radius: 5px;">
-                <div class="card-header">
-                    <h5 class="card-title">Nombre cliente</h5>
-                </div>
-                <div class="card-body class-title">
-                    <p class="card-text">Contacto</p>
-                    <div class="card-text">Dirección</div>
-                </div>
-                <div class="card-footer">
-                    <a href="#" style="background-color: #F47C7C; border: none; color: black; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-danger">Eliminar</a>
-                    <a href="#" style="background-color: #FFE59D; border: none; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-warning">Modificar</a>
+        @foreach ($clients->all() as $client)
+            <div class="col">
+                <div class="card h-100" style="border: none; box-shadow: 2px 2px 5px #999; background-color: #FFC4DD; border-radius: 5px;">
+                    <div class="card-header">
+                        <h4 class="card-title">{{$client->nombre}}</h4>
+                    </div>
+                    <div class="card-body class-title">
+                        <p class="card-text"><b>Contacto: </b>{{$client->contacto}}</p>
+                        <p class="card-text"><b>Dirección: </b>{{$client->direccion}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" style="background-color: #F47C7C; border: none; color: black; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-danger">Eliminar</a>
+                        <a href="#" style="background-color: #FFE59D; border: none; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-warning">Modificar</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card h-100" style="border: none; box-shadow: 2px 2px 5px #999; background-color: #FFC4DD; border-radius: 5px;">
-                <div class="card-header">
-                    <h5 class="card-title">Nombre cliente</h5>
-                </div>
-                <div class="card-body class-title">
-                    <p class="card-text">Contacto</p>
-                    <div class="card-text">Dirección</div>
-                </div>
-                <div class="card-footer">
-                    <a href="#" style="background-color: #F47C7C; border: none; color: black; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-danger">Eliminar</a>
-                    <a href="#" style="background-color: #FFE59D; border: none; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-warning">Modificar</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100" style="border: none; box-shadow: 2px 2px 5px #999; background-color: #FFC4DD; border-radius: 5px;">
-                <div class="card-header">
-                    <h5 class="card-title">Nombre cliente</h5>
-                </div>
-                <div class="card-body class-title">
-                    <p class="card-text">Contacto</p>
-                    <div class="card-text">Dirección</div>
-                </div>
-                <div class="card-footer">
-                    <a href="#" style="background-color: #F47C7C; border: none; color: black; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-danger">Eliminar</a>
-                    <a href="#" style="background-color: #FFE59D; border: none; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-warning">Modificar</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100" style="border: none; box-shadow: 2px 2px 5px #999; background-color: #FFC4DD; border-radius: 5px;">
-                <div class="card-header">
-                    <h5 class="card-title">Nombre cliente</h5>
-                </div>
-                <div class="card-body class-title">
-                    <p class="card-text">Contacto</p>
-                    <div class="card-text">Dirección</div>
-                </div>
-                <div class="card-footer">
-                    <a href="#" style="background-color: #F47C7C; border: none; color: black; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-danger">Eliminar</a>
-                    <a href="#" style="background-color: #FFE59D; border: none; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-warning">Modificar</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100" style="border: none; box-shadow: 2px 2px 5px #999; background-color: #FFC4DD; border-radius: 5px;">
-                <div class="card-header">
-                    <h5 class="card-title">Nombre cliente</h5>
-                </div>
-                <div class="card-body class-title">
-                    <p class="card-text">Contacto</p>
-                    <div class="card-text">Dirección</div>
-                </div>
-                <div class="card-footer">
-                    <a href="#" style="background-color: #F47C7C; border: none; color: black; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-danger">Eliminar</a>
-                    <a href="#" style="background-color: #FFE59D; border: none; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-warning">Modificar</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100" style="border: none; box-shadow: 2px 2px 5px #999; background-color: #FFC4DD; border-radius: 5px;">
-                <div class="card-header">
-                    <h5 class="card-title">Nombre cliente</h5>
-                </div>
-                <div class="card-body class-title">
-                    <p class="card-text">Contacto</p>
-                    <div class="card-text">Dirección</div>
-                </div>
-                <div class="card-footer">
-                    <a href="#" style="background-color: #F47C7C; border: none; color: black; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-danger">Eliminar</a>
-                    <a href="#" style="background-color: #FFE59D; border: none; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-warning">Modificar</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100" style="border: none; box-shadow: 2px 2px 5px #999; background-color: #FFC4DD; border-radius: 5px;">
-                <div class="card-header">
-                    <h5 class="card-title">Nombre cliente</h5>
-                </div>
-                <div class="card-body class-title">
-                    <p class="card-text">Contacto</p>
-                    <div class="card-text">Dirección</div>
-                </div>
-                <div class="card-footer">
-                    <a href="#" style="background-color: #F47C7C; border: none; color: black; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-danger">Eliminar</a>
-                    <a href="#" style="background-color: #FFE59D; border: none; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-warning">Modificar</a>
-                </div>
-            </div>
-        </div>
+        @endforeach
+ 
+    </div>
         
 
 </div>

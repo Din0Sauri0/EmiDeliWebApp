@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
             center: 'title',
             right: 'dayGridMonth,listWeek'
         },
+        titleFormat: { month: 'short'},
+        
         events: "http://127.0.0.1:8000/pedido/cargar",
         eventColor: '#7FB5FF',
     });
