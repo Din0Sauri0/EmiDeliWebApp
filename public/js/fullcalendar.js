@@ -14,6 +14,15 @@ document.addEventListener('DOMContentLoaded', function () {
         
         events: "http://127.0.0.1:8000/pedido/cargar",
         eventColor: '#7FB5FF',
+
+        dateClick:function(info) {
+            formulario.reset();
+            formulario.start.value = info.dateStr;
+            formulario.end.value = info.dateStr;
+
+        }
+
+
     });
     calendar.render();
 });

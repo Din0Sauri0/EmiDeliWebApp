@@ -15,18 +15,19 @@ Agregar Pedido
             </button>
         </div>
     </div>
-    @if(session('muchaplata'))
-        <h3>
-            {{session('muchaplata')}}
-        </h3>
-    @endif
 
+    @if(session('muchaplata'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{session('muchaplata')}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
 
     <!-- //*Carga el calendrio -->
     <div id="fullcalendar" class="mb-3 p-3" style="border: none; box-shadow: 2px 2px 5px #999; background-color: #FFC4DD; border-radius: 5px;"></div>
 
     <!-- Modal -->
-    <div class="modal fade modal-dialog-scrollable" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade modal-dialog-scrollable" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content" style="background-color: #FFBBBB;">
                 <div class="modal-header">
