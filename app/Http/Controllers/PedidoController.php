@@ -27,6 +27,11 @@ class PedidoController extends Controller
         $pedido->total = $request->total_pedido;
         $pedido->descripcion = $request->descripcion;
 
+        if ($pedido->abono > $pedido->total){
+            return redirect('/pedido')->with('muchaplata', 'El abono no debe ser mayor al total del pedido');
+
+        }
+
         $pedido->save();
 
         return redirect('/pedido');

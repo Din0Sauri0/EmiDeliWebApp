@@ -39,6 +39,8 @@ Route::controller(PedidoController::class)->middleware('auth')->group(function()
     Route::get('/pedido', [PedidoController::class, 'index'])->name('pedido');
     Route::get('/pedido/cargar', [PedidoController::class, 'show']);
     Route::post('/pedido/registro', [PedidoController::class, 'create'])->name('registro_pedido');
+
+    Route::post('/pedido/actualizar',[PedidoController::class, 'update'])->name('actualizar_pedido');
 });
 
 
@@ -46,6 +48,8 @@ Route::controller(PedidoController::class)->middleware('auth')->group(function()
 Route::controller(ClienteController::class)->middleware('auth')->group(function(){
     Route::get('/cliente',[ClienteController::class, 'index'])->name('cliente');
     Route::post('/cliente/registro', [ClienteController::class, 'create'])->name('registro_cliente');
+
+    Route::post('/cliente/actualizar',[ClienteController::class, 'update'])->name('actualizar_cliente');
 });
 
 Route::controller(WebServiceController::class)->group(function(){

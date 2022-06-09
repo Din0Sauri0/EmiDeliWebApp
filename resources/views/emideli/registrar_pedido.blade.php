@@ -15,7 +15,11 @@ Agregar Pedido
             </button>
         </div>
     </div>
-
+    @if(session('muchaplata'))
+        <h3>
+            {{session('muchaplata')}}
+        </h3>
+    @endif
 
 
     <!-- //*Carga el calendrio -->
@@ -29,12 +33,13 @@ Agregar Pedido
                     <h5 class="modal-title" id="exampleModalLabel">Agendar pedido</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                    
                 <div class="modal-body">
                     <form action="{{ route('registro_pedido') }}" method="POST">
                         @csrf
 
                         <!-- //TODO Agregar tipo pedido aqui -->
-                        <select class="form-select" name="nombre_cliente">
+                        <select class="form-select" name="tipo_pedido">
                             <option selected disabled>--Selecciones una opcion--</option>
                             <option value="Personalizada">Personalizada</option>
                             <option value="Predeterminado">Predeterminado</option>
@@ -52,7 +57,7 @@ Agregar Pedido
                             <select class="form-select" name="nombre_cliente" id="name_client_dropbox">
                                 <option selected disabled>--Selecciones una opcion--</option>
                                 @foreach ($clients->all() as $client)
-                                <option value="{{$client->id}}">{{$client->nombre}}</option>
+                                <option value="{{$client->nombre}}">{{$client->nombre}}</option>
                                 @endforeach
                                 //TODO insetar option desde la base de datos
                             </select>

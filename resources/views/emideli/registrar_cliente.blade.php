@@ -30,7 +30,7 @@ Agregar cliente
                     </div>
                     <div class="card-footer">
                         <a href="#" style="background-color: #F47C7C; border: none; color: black; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-danger">Eliminar</a>
-                        <a href="#" style="background-color: #FFE59D; border: none; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-warning">Modificar</a>
+                        <button style="background-color: #FFE59D; border: none; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-warning">Modificar</button>
                     </div>
                 </div>
             </div>

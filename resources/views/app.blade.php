@@ -29,7 +29,7 @@
     @else
     <nav class="navbar navbar-expand-lg navbar-light nav-style">
         <div class="container-fluid">
-            <a href="#">
+            <a href="{{ route('pedido') }}">
                 <img class="nav-img" src="{{ asset('img/Logo.png') }}">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
