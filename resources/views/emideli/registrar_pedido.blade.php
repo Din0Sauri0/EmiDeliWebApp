@@ -34,7 +34,7 @@ Agregar Pedido
                         @csrf
 
                         <!-- //TODO Agregar tipo pedido aqui -->
-                        <select class="form-select" name="nombre_cliente">
+                        <select class="form-select" name="tipo_pedido">
                             <option selected disabled>--Selecciones una opcion--</option>
                             <option value="Personalizada">Personalizada</option>
                             <option value="Predeterminado">Predeterminado</option>
