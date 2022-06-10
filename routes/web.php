@@ -50,6 +50,7 @@ Route::controller(ClienteController::class)->middleware('auth')->group(function(
     Route::post('/cliente/registro', [ClienteController::class, 'create'])->name('registro_cliente');
 
     Route::post('/cliente/actualizar',[ClienteController::class, 'update'])->name('actualizar_cliente');
+    Route::delete('/cliente/{id}',[ClienteController::class, 'destroy'])->name('eliminar_cliente');
 });
 
 Route::controller(WebServiceController::class)->group(function(){
