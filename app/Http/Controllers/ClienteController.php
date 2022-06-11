@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 class ClienteController extends Controller
 {
     public function index(){
-
         $clients= Cliente::all();
         return view ('emideli.registrar_cliente', compact('clients'));
     }
@@ -25,6 +24,10 @@ class ClienteController extends Controller
         $cliente->save();
 
         return redirect('/cliente');
+    }
+    public function destroy($id){
+            Cliente::destroy($id);
+            return redirect('/cliente')->with('destroy','El cliente ha sido eliminado');
     }
 
 }

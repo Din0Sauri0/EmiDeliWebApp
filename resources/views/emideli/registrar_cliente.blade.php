@@ -16,6 +16,13 @@ Agregar cliente
         </div>
     </div>
 
+    @if(session('destroy'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{session('destroy')}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     <div class="row row-cols-1 row-cols-md-3 g-4">
 
         @foreach ($clients->all() as $client)
@@ -29,8 +36,27 @@ Agregar cliente
                         <p class="card-text"><b>Dirección: </b>{{$client->direccion}}</p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" style="background-color: #F47C7C; border: none; color: black; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-danger">Eliminar</a>
+                        <button style="background-color: #F47C7C; border: none; color: black; border: none; box-shadow: 2px 2px 5px #999;" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#destroyModal{{$client->id}}">Eliminar</button>
                         <button style="background-color: #FFE59D; border: none; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-warning">Modificar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Eliminar -->
+            <div class="modal fade" id="destroyModal{{$client->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content" style="background-color: #FFBBBB;">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">¿Desea realmente eliminar a {{$client->nombre}}?</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ route('eliminar_cliente', $client->id)}}" method='POST'>
+                                @method ('DELETE')
+                                @csrf
+                                    <button type="submit" style="background-color: #F47C7C; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-success">Eliminar</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -43,7 +69,7 @@ Agregar cliente
 
 
 
-<!-- Modal -->
+<!-- Modal Agregar cliente -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" style="background-color: #FFBBBB;">
@@ -78,5 +104,13 @@ Agregar cliente
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
 
 @endsection
