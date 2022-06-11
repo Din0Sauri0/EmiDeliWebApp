@@ -16,21 +16,24 @@ class PedidoController extends Controller
     public function create(Request $request){
         $pedido = new Pedido();
 
-        
+        if ($request->abono > $request->total_pedido){
+            return redirect('/pedido')->with('muchaplata', 'El abono no debe ser mayor al total del pedido');
+        };
 
         $pedido->tipo_pedido = $request->tipo_pedido;
         $pedido->title = $request->nombre_cliente;
         $pedido->abono = $request->abono;
+        if($request->hasFile('imagen')){
+            $file = $request->file('imagen');
+            $uploads = 'img/Uploads/';
+            $file_name = time().'-'.$file->getClientOriginalName();
+            $success = $request->file('imagen')->move($uploads, $file_name);
+            $pedido->imagen = $uploads.$file_name;
+        };
         $pedido->start = $request->fecha_entrega;
         $pedido->end = $request->fecha_entrega;
-        $pedido->imagen = $request->imagen;
         $pedido->total = $request->total_pedido;
         $pedido->descripcion = $request->descripcion;
-
-        if ($pedido->abono > $pedido->total){
-            return redirect('/pedido')->with('muchaplata', 'El abono no debe ser mayor al total del pedido');
-
-        }
 
         $pedido->save();
 
@@ -41,5 +44,12 @@ class PedidoController extends Controller
         $pedidos = Pedido::all();
         return $pedidos;
 
+    }
+
+    public function pedido_id($id){
+        $pedido = Pedido::findOrFail($id);
+
+        return view('emideli.ver_pedido', compact('pedido'));
+        
     }
 }

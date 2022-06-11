@@ -62,6 +62,7 @@
 
     <!-- //*Script para cargar el calendario -->
     <script src="{{ asset('js/fullcalendar.js') }}"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     @yield('content')
 

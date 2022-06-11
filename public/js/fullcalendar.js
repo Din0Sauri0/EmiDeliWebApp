@@ -15,10 +15,17 @@ document.addEventListener('DOMContentLoaded', function () {
         events: "http://127.0.0.1:8000/pedido/cargar",
         eventColor: '#7FB5FF',
 
-        dateClick:function(info) {
-            formulario.reset();
-            formulario.start.value = info.dateStr;
-            formulario.end.value = info.dateStr;
+        eventClick:function(info) {
+            let id = info.event.id;
+            axios.request('http://127.0.0.1:8000/pedido/'+id).then((res)=>{
+                if(res.status==200){
+                    location.href = 'http://127.0.0.1:8000/pedido/'+id;
+                };
+            });
+
+            // formulario.reset();
+            // formulario.start.value = info.dateStr;
+            // formulario.end.value = info.dateStr;
 
         }
 
