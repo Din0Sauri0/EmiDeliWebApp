@@ -26,8 +26,18 @@ class ClienteController extends Controller
         return redirect('/cliente');
     }
     public function destroy($id){
-            Cliente::destroy($id);
-            return redirect('/cliente')->with('destroy','El cliente ha sido eliminado');
+        Cliente::destroy($id);
+        return redirect('/cliente')->with('destroy','El cliente ha sido eliminado');
     }
+    public function update(Request $request, $id){
+        $cliente = Cliente::find($id);
+        
+        $cliente->nombre = $request->nombre;
+        $cliente->contacto = $request->contacto;
+        $cliente->direccion = $request->direccion;
 
+        $cliente->save();
+
+        return redirect('/cliente')->with('update','El cliente ha sido modificado');
+    }
 }

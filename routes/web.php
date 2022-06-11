@@ -50,8 +50,7 @@ Route::controller(PedidoController::class)->middleware('auth')->group(function()
 Route::controller(ClienteController::class)->middleware('auth')->group(function(){
     Route::get('/cliente',[ClienteController::class, 'index'])->name('cliente');
     Route::post('/cliente/registro', [ClienteController::class, 'create'])->name('registro_cliente');
-
-    Route::post('/cliente/actualizar',[ClienteController::class, 'update'])->name('actualizar_cliente');
+    Route::post('/cliente/{id}',[ClienteController::class, 'update'])->name('actualizar_cliente');
     Route::delete('/cliente/{id}',[ClienteController::class, 'destroy'])->name('eliminar_cliente');
 });
 
