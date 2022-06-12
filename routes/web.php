@@ -39,8 +39,8 @@ Route::controller(PedidoController::class)->middleware('auth')->group(function()
     Route::get('/pedido', [PedidoController::class, 'index'])->name('pedido');
     Route::get('/pedido/cargar', [PedidoController::class, 'show']);
     Route::post('/pedido/registro', [PedidoController::class, 'create'])->name('registro_pedido');
-
-    Route::post('/pedido/actualizar',[PedidoController::class, 'update'])->name('actualizar_pedido');
+    Route::post('/pedido/{id}',[PedidoController::class, 'update'])->name('actualizar_pedido');
+    Route::delete('/pedido/{id}',[PedidoController::class, 'destroy'])->name('eliminar_pedido');
 
     Route::get('/pedido/{id}', [PedidoController::class, 'pedido_id'])->name('pedido_id');
 });

@@ -16,6 +16,20 @@ Agregar Pedido
         </div>
     </div>
 
+    @if(session('destroy'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{session('destroy')}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
+    @if(session('update'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{session('update')}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     @if(session('muchaplata'))
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>{{session('muchaplata')}}</strong>
@@ -53,7 +67,7 @@ Agregar Pedido
                                 <div class="input-group-text">
                                     <input class="form-check-input mt-0" type="checkbox" value="" id="type_field">
                                 </div>
-                                <input type="text" class="form-control" name="nombre_cliente" id="name_client_txt">
+                                <input type="text" class="form-control" name="nombre_cliente" id="name_client_txt" placeholder="Nuevo cliente">
                             </div>
                             <select class="form-select" name="nombre_cliente" id="name_client_dropbox">
                                 <option selected disabled>--Selecciones una opcion--</option>

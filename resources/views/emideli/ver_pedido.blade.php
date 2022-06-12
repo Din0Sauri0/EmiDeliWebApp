@@ -5,6 +5,8 @@ Agregar Pedido
 @endsection
 
 @section('content')
+
+
 <div class="container p-4">
     <div class="content-center row row-cols-1 row-cols-md-2" style="border: none; box-shadow: 2px 2px 5px #999; background-color: #FFC4DD; border-radius: 15px;">
         <div class="col mb-4">
@@ -82,17 +84,16 @@ Agregar Pedido
                     <!-- //*Descripcion -->
                     <div class="mb-3">
                     <!-- <h3>Descripcion: {{$pedido->descripcion}}</h3> -->
-                        <label class="size card-text"><b>Descricion.</b></label>
+                        <label class="size card-text"><b>Descripcion.</b></label>
                         <p class="sub-size">{{$pedido->descripcion}}</p>
                         <!-- <label for="direccion" class="form-label">Descripcion</label>
                         <textarea type="text" class="form-control" id="direccion" name="descripcion"></textarea> -->
                     </div>
 
                     <div class="align-self-end">
-                        <button type="submit" style="background-color: #97DBAE; color: black; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-success">Guardar</button>
                         <div class="float-end">
                             <button style="background-color: #FFE59D; border: none; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-warning">Modificar</button>
-                            <button style="background-color: #F47C7C; border: none; color: black; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-danger">Eliminar</button>
+                            <button style="background-color: #F47C7C; border: none; color: black; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-danger"type="button" data-bs-toggle="modal" data-bs-target="#destroyModal{{$pedido->id}}">Eliminar</button>
                         </div>
                     </div>
                     
@@ -111,6 +112,95 @@ Agregar Pedido
     </div>
 
     <!-- {{ $pedido }} -->
+</div>
+
+<!-- Modal Eliminar -->
+<div class="modal fade" id="destroyModal{{$pedido->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #FFBBBB;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">¿Desea realmente eliminar el pedido de {{$pedido->title}}?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('eliminar_pedido', $pedido->id)}}" method='POST'>
+                    @method ('DELETE')
+                    @csrf
+                        <button type="submit" style="background-color: #F47C7C; border: none; color:black; box-shadow: 2px 2px 5px #999;" class="btn btn-success">Eliminar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Modificar -->
+<div class="modal fade" id="updateModal{{$pedido->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #FFBBBB;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modificando el pedido de {{$pedido->title}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('actualizar_pedido', $pedido->id)}}" method='POST'>
+                    @csrf
+                    <select class="form-select" name="tipo_pedido">
+                        <option selected disabled>--Selecciones una opcion--</option>
+                        <option value="Personalizada">Personalizada</option>
+                        <option value="Predeterminado">Predeterminado</option>
+                    </select>
+
+                    <div class="mb-3">
+                        <label for="contacto" class="form-label">Cliente</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-text">
+                                <input class="form-check-input mt-0" type="checkbox" value="" id="type_field">
+                            </div>
+                            <input type="text" class="form-control" name="nombre_cliente" id="name_client_txt" placeholder="Nuevo cliente">
+                        </div>
+                        {{-- <select class="form-select" name="nombre_cliente" id="name_client_dropbox">
+                            <option selected disabled>--Selecciones una opcion--</option>
+                            @foreach ($clients->all() as $client)
+                            <option value="{{$client->nombre}}">{{$client->nombre}}</option>
+                            @endforeach
+                            //TODO insetar option desde la base de datos
+                        </select> --}}
+                    </div>
+
+             
+                    <div class="mb-3">
+                        <label for="contacto" class="form-label">Abono</label>
+                        <input type="number" class="form-control" id="contacto" name="abono">
+                    </div>
+
+            
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Fecha de entrega</label>
+                        <input type="date" class="form-control" id="direccion" name="fecha_entrega">
+                    </div>
+
+     
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Imagen</label>
+                        <input type="file" class="form-control" id="direccion" name="imagen">
+                    </div>
+
+     
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Total</label>
+                        <input type="number" class="form-control" id="direccion" name="total_pedido">
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Descripcion</label>
+                        <textarea type="text" class="form-control" id="direccion" name="descripcion"></textarea>
+                    </div>
+                        <button type="submit" style="background-color: #97DBAE; border: none; color:black; box-shadow: 2px 2px 5px #999;" class="btn btn-success">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 
