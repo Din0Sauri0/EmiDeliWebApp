@@ -1,4 +1,9 @@
 /* body style */
+body{
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Work Sans', sans-serif;
+}
+
 .bg-color{
     background-color: #E4AEC5;
 }
@@ -47,3 +52,11 @@
 /* :root{
     --bs-blue: #7FB5FF;
 } */
+
+
+.size{
+    font-size: 25px;
+}
+.sub-size{
+    font-size: 20px;
+}
