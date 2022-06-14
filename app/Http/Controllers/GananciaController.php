@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class GananciaController extends Controller
 {
     public function index(){
-        $ganancias = Ganancia::paginate(9)->orderBy('mes', 'desc');
+        $ganancias = Ganancia::paginate(9);
         $ganancias_All = Ganancia::all();
         
         $last_month = new Carbon('last month');
