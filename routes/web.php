@@ -33,8 +33,6 @@ Route::controller(UserController::class)->group(function(){
     
 });
 
-
-
 Route::controller(PedidoController::class)->middleware('auth')->group(function(){
     Route::get('/pedido', [PedidoController::class, 'index'])->name('pedido');
     Route::get('/pedido/cargar', [PedidoController::class, 'show']);
@@ -45,13 +43,16 @@ Route::controller(PedidoController::class)->middleware('auth')->group(function()
     Route::get('/pedido/{id}', [PedidoController::class, 'pedido_id'])->name('pedido_id');
 });
 
-
-
 Route::controller(ClienteController::class)->middleware('auth')->group(function(){
     Route::get('/cliente',[ClienteController::class, 'index'])->name('cliente');
     Route::post('/cliente/registro', [ClienteController::class, 'create'])->name('registro_cliente');
     Route::post('/cliente/{id}',[ClienteController::class, 'update'])->name('actualizar_cliente');
     Route::delete('/cliente/{id}',[ClienteController::class, 'destroy'])->name('eliminar_cliente');
+});
+
+Route::controller(WebServiceController::class)->group(function(){
+    Route::get('/ganancia',[GananciaController::class, 'index'])->name('ganancia');
+
 });
 
 Route::controller(WebServiceController::class)->group(function(){

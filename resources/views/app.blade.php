@@ -49,7 +49,7 @@
                         <a class="nav-link" href="{{ route('cliente') }}">Clientes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Ganancias</a>
+                        <a class="nav-link" href="{{ route('ganancia') }}">Ganancias</a>
                     </li>
                     <li class="nav-item">
                         <form action= "/logout" method="POST">

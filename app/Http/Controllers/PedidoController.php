@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Pedido;
 use App\Models\Cliente;
+use App\Models\Ganancia;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PedidoController extends Controller
 {
@@ -15,6 +18,7 @@ class PedidoController extends Controller
 
     public function create(Request $request){
         $pedido = new Pedido();
+        $ganancia = new Ganancia();
 
         if ($request->abono > $request->total_pedido){
             return redirect('/pedido')->with('muchaplata', 'El abono no debe ser mayor al total del pedido');
@@ -34,8 +38,17 @@ class PedidoController extends Controller
         $pedido->end = $request->fecha_entrega;
         $pedido->total = $request->total_pedido;
         $pedido->descripcion = $request->descripcion;
-
         $pedido->save();
+
+        $date = Carbon::parse($pedido->start);
+        $month = $date->format('m');
+        //dd($month);
+        $year = $date->format('Y');
+        $ganancia->mes = $month;
+        $ganancia->year = $year;
+        $ganancia->total = $request->total_pedido;
+        $ganancia->user_id = Auth::id();
+        $ganancia->save();
 
         return redirect('/pedido');
     }

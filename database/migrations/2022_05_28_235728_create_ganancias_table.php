@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('ganancias', function (Blueprint $table) {
             $table->id();
-            $table->integer('semana');
-            $table->integer('mes');
+            $table->string('mes');
+            $table->string('year');
+            $table->integer('total');
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
