@@ -42,7 +42,6 @@ class PedidoController extends Controller
 
         $date = Carbon::parse($pedido->start);
         $month = $date->format('m');
-        //dd($month);
         $year = $date->format('Y');
         $ganancia->mes = $month;
         $ganancia->year = $year;
