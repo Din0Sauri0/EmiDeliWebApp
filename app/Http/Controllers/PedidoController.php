@@ -71,7 +71,7 @@ class PedidoController extends Controller
 
         return redirect('/pedido')->with('destroy','El pedido de '.$nombreCliente->title.' ha sido eliminado');
     }
-    /**public function update(Request $request,$id){
+    public function update($id, Request $request){
         $pedido = Pedido::find($id);
 
         if ($request->abono > $request->total_pedido){
@@ -95,6 +95,6 @@ class PedidoController extends Controller
 
         $pedido->save();   
     
-        return redirect('/pedido/{id}')->with('update','El pedido ha sido modificado');
-    }**/
+        return redirect('/pedido/'.$pedido->id)->with('update','El pedido ha sido actualizado');
+    }
 }
