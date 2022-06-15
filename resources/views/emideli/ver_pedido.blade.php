@@ -71,7 +71,6 @@ Agregar Pedido
         </div>
     </div>
 
-    <!-- {{ $pedido }} -->
 </div>
 
 <!-- Modal Eliminar -->
@@ -114,29 +113,29 @@ Agregar Pedido
                     </select>
 
                     <div class="mb-3">
-                        <label for="contacto" class="form-label">Cliente</label>
+                        <label for="nombre_cliente" class="form-label">Cliente</label>
                         <div class="input-group mb-3">
                             <input readonly value="{{$pedido->title}}" type="text" class="form-control" name="nombre_cliente" id="name_client_txt" placeholder="Nuevo cliente">
                         </div>
                     </div>
              
                     <div class="mb-3">
-                        <label for="contacto" class="form-label">Abono</label>
+                        <label for="abono" class="form-label">Abono</label>
                         <input type="number" class="form-control" id="contacto" name="abono" value="{{$pedido->abono}}">
                     </div>
             
                     <div class="mb-3">
-                        <label for="direccion" class="form-label">Fecha de entrega</label>
+                        <label for="fecha_entrega" class="form-label">Fecha de entrega</label>
                         <input type="date" class="form-control" id="direccion" name="fecha_entrega" value="{{$pedido->start}}">
                     </div>
 
                     <div class="mb-3">
-                        <label for="direccion" class="form-label">Imagen</label>
+                        <label for="imagen" class="form-label">Imagen</label>
                         <input type="file" class="form-control" id="direccion" name="imagen">
                     </div>
 
                     <div class="mb-3">
-                        <label for="direccion" class="form-label">Total</label>
+                        <label for="total_pedido" class="form-label">Total</label>
                         <input type="number" class="form-control" id="direccion" name="total_pedido" value="{{$pedido->total}}">
                     </div>
 

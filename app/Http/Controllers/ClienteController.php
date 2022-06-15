@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Cliente;
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Route;
 
 class ClienteController extends Controller
 {
     public function index(){
         $clients= Cliente::all();
-        return view ('emideli.registrar_cliente', compact('clients'));
+        $ruta = Route::currentRouteName();
+        return view ('emideli.registrar_cliente', compact('clients', 'ruta'));
     }
     public function create(Request $request ){
         $cliente = new Cliente();
@@ -22,6 +23,7 @@ class ClienteController extends Controller
         $cliente->user_id= auth()->id();
 
         $cliente->save();
+        
 
         return redirect('/cliente');
     }

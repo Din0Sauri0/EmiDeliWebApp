@@ -24,6 +24,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet">
 
+    <!-- livewire -->
+    @livewireStyles
 
     <title>Emideli - @yield('title')</title>
 </head>
@@ -43,13 +45,27 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ route('pedido') }}">Home</a>
+                        @if ($ruta == 'pedido')
+                        <a  class="nav-link active" aria-current="page" href="{{ route('pedido') }}">Home</a>
+                        @else
+                        <a  class="nav-link" aria-current="page" href="{{ route('pedido') }}">Home</a>
+                        @endif
                     </li>
                     <li class="nav-item">
+                        @if ($ruta == 'cliente')
+                        <a class="nav-link active" href="{{ route('cliente') }}">Clientes</a>
+                        @else
                         <a class="nav-link" href="{{ route('cliente') }}">Clientes</a>
+                        @endif
+                        
                     </li>
                     <li class="nav-item">
+                        @if ($ruta == 'ganancia')
+                        <a class="nav-link active" href="{{ route('ganancia') }}">Ganancias</a>
+                        @else
                         <a class="nav-link" href="{{ route('ganancia') }}">Ganancias</a>
+                        @endif
+                        
                     </li>
                     <li class="nav-item">
                         <form action= "/logout" method="POST">
@@ -71,7 +87,7 @@
 
     @yield('content')
 
-
+    @livewireScripts
 </body>
 
 </html>

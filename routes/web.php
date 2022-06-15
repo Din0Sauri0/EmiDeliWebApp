@@ -7,8 +7,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GananciaController;
 use App\Http\Controllers\WebServiceController;
-
-
+use App\Models\Ganancia;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,13 +49,14 @@ Route::controller(ClienteController::class)->middleware('auth')->group(function(
     Route::delete('/cliente/{id}',[ClienteController::class, 'destroy'])->name('eliminar_cliente');
 });
 
-Route::controller(WebServiceController::class)->group(function(){
+Route::controller(GananciaController::class)->group(function(){
     Route::get('/ganancia',[GananciaController::class, 'index'])->name('ganancia');
+    Route::post('/ganancia',[GananciaController::class, 'select_between'])->name('ganancia_between');
 
 });
 
-Route::controller(WebServiceController::class)->group(function(){
-    Route::get('/webservice/clients', 'get_clients');
-    Route::post('/webservice/clients/add','add_clients');
-    Route::post('/webservice/user/validate','validate_user');
-});
+// Route::controller(WebServiceController::class)->group(function(){
+//     Route::get('/webservice/clients', 'get_clients');
+//     Route::post('/webservice/clients/add','add_clients');
+//     Route::post('/webservice/user/validate','validate_user');
+// });

@@ -7,13 +7,15 @@ use App\Models\Cliente;
 use App\Models\Ganancia;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Route;
 
 class PedidoController extends Controller
 {
     public function index(){
         $clients = Cliente::all();
-        return view('emideli.registrar_pedido', compact('clients'));
+        $ruta = Route::currentRouteName();
+        return view('emideli.registrar_pedido', compact('clients', 'ruta'));
     }
 
     public function create(Request $request){

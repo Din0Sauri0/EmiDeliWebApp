@@ -43,7 +43,6 @@ Login
 
                             @endforeach
                             <div class="mb-3"><button class="btn btn-primary d-block w-100 mb-4" type="submit">Ingresar</button></div>
-                            <p hidden class="text-muted">Forgot your password?</p>
                         </form>
                     </div>
                 </div>
