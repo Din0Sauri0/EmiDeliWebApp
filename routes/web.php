@@ -8,7 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\GananciaController;
 use App\Http\Controllers\WebServiceController;
 use App\Models\Ganancia;
-
+use App\Http\Livewire\RegistrarCliente;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,10 +44,11 @@ Route::controller(PedidoController::class)->middleware('auth')->group(function()
 
 Route::controller(ClienteController::class)->middleware('auth')->group(function(){
     Route::get('/cliente',[ClienteController::class, 'index'])->name('cliente');
-    Route::post('/cliente/registro', [ClienteController::class, 'create'])->name('registro_cliente');
-    Route::post('/cliente/{id}',[ClienteController::class, 'update'])->name('actualizar_cliente');
-    Route::delete('/cliente/{id}',[ClienteController::class, 'destroy'])->name('eliminar_cliente');
+    // Route::post('/cliente/registro', [ClienteController::class, 'create'])->name('registro_cliente');
+    // Route::post('/cliente/{id}',[ClienteController::class, 'update'])->name('actualizar_cliente');
+    // Route::delete('/cliente/{id}',[ClienteController::class, 'destroy'])->name('eliminar_cliente');
 });
+
 
 Route::controller(GananciaController::class)->group(function(){
     Route::get('/ganancia',[GananciaController::class, 'index'])->name('ganancia');

@@ -62,8 +62,8 @@ class PedidoController extends Controller
 
     public function pedido_id($id){
         $pedido = Pedido::findOrFail($id);
-
-        return view('emideli.ver_pedido', compact('pedido'));
+        $ruta = Route::currentRouteName();
+        return view('emideli.ver_pedido', compact('pedido', 'ruta'));
         
     }
     public function destroy($id){

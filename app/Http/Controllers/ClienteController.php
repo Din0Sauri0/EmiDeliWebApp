@@ -10,36 +10,37 @@ use Illuminate\Support\Facades\Route;
 class ClienteController extends Controller
 {
     public function index(){
-        $clients= Cliente::all();
         $ruta = Route::currentRouteName();
-        return view ('emideli.registrar_cliente', compact('clients', 'ruta'));
+        return view ('emideli.registrar_cliente', compact('ruta'));
     }
-    public function create(Request $request ){
-        $cliente = new Cliente();
+    //! public function create(Request $request ){
+    //!     $cliente = new Cliente();
 
-        $cliente->nombre = $request->nombre;
-        $cliente->contacto = $request->contacto;
-        $cliente->direccion = $request->direccion;
-        $cliente->user_id= auth()->id();
+    //!    $cliente->nombre = $request->nombre;
+    //!    $cliente->contacto = $request->contacto;
+    //!     $cliente->direccion = $request->direccion;
+    //!     $cliente->user_id= auth()->id();
 
-        $cliente->save();
+    // !    $cliente->save();
         
 
-        return redirect('/cliente');
-    }
-    public function destroy($id){
-        Cliente::destroy($id);
-        return redirect('/cliente')->with('destroy','El cliente ha sido eliminado');
-    }
-    public function update(Request $request, $id){
-        $cliente = Cliente::find($id);
+    //  !   return redirect('/cliente');
+    // !}
+
+    //! public function destroy($id){
+    //!     Cliente::destroy($id);
+    //!     return redirect('/cliente')->with('destroy','El cliente ha sido eliminado');
+    //! }
+    
+    //!public function update(Request $request, $id){
+    // !    $cliente = Cliente::find($id);
         
-        $cliente->nombre = $request->nombre;
-        $cliente->contacto = $request->contacto;
-        $cliente->direccion = $request->direccion;
+    //  !   $cliente->nombre = $request->nombre;
+    //   !  $cliente->contacto = $request->contacto;
+    //    ! $cliente->direccion = $request->direccion;
 
-        $cliente->save();
+    //     !$cliente->save();
 
-        return redirect('/cliente')->with('update','El cliente ha sido modificado');
-    }
+    //     !return redirect('/cliente')->with('update','El cliente ha sido modificado');
+    // !}
 }

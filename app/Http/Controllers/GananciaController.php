@@ -41,7 +41,7 @@ class GananciaController extends Controller
         $ganancias = Ganancia::paginate(9);
         $ganancias_All = Ganancia::all();
 
-        
+            
         $last_month = new Carbon('last month');
         $last_month = $last_month->format('m');
 
@@ -59,8 +59,9 @@ class GananciaController extends Controller
         }
 
         $ganancia_between = Ganancia::whereBetween("created_at", [$request->start_date, $request->end_date])->get();
+        $ruta = Route::currentRouteName();
 
-        return view('emideli.ganancia', compact('ganancia_between', 'ganancias', 'total_last_month', 'total_current_month'));
+        return view('emideli.ganancia', compact('ganancia_between', 'ganancias', 'total_last_month', 'total_current_month', 'ruta'));
 
     }
 
