@@ -18,6 +18,12 @@ class RegistrarCliente extends Component
         'direccion' => 'required',
     ];
 
+    protected $messages = [
+        'nombre.required' => 'El campo nombre no puede estar vacio',
+        'contacto.required' => 'El campo contacto no puede estar vacio',
+        'direccion.required' => 'El campo direccion no puede estar vacio',
+    ];
+
     public function clear(){
         $this->nombre = null;
         $this->contacto = null;
