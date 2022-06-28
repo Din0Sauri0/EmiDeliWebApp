@@ -50,66 +50,7 @@ Agregar Pedido
                 </div>
                     
                 <div class="modal-body">
-                    <form action="{{ route('registro_pedido') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-
-                        <!-- //TODO Agregar tipo pedido aqui -->
-                        <select class="form-select" name="tipo_pedido">
-                            <option selected disabled>--Selecciones una opcion--</option>
-                            <option value="Personalizada">Personalizada</option>
-                            <option value="Predeterminado">Predeterminado</option>
-                        </select>
-
-                        <!-- //*Nombre cliente -->
-                        <div class="mb-3">
-                            <label for="contacto" class="form-label">Cliente</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group-text">
-                                    <input class="form-check-input mt-0" type="checkbox" value="" id="type_field">
-                                </div>
-                                <input type="text" class="form-control" name="nombre_cliente" id="name_client_txt" placeholder="Nuevo cliente">
-                            </div>
-                            <select class="form-select" name="nombre_cliente" id="name_client_dropbox">
-                                <option selected disabled>--Selecciones una opcion--</option>
-                                @foreach ($clients->all() as $client)
-                                <option value="{{$client->nombre}}">{{$client->nombre}}</option>
-                                @endforeach
-                                //TODO insetar option desde la base de datos
-                            </select>
-                        </div>
-
-                        <!-- //*Abono pedido -->
-                        <div class="mb-3">
-                            <label for="contacto" class="form-label">Abono</label>
-                            <input type="number" class="form-control" id="contacto" name="abono">
-                        </div>
-
-                        <!-- //*Fecha de entrega -->
-                        <div class="mb-3">
-                            <label for="direccion" class="form-label">Fecha de entrega</label>
-                            <input type="date" class="form-control" id="direccion" name="fecha_entrega">
-                        </div>
-
-                        <!-- //*Imagen -->
-                        <div class="mb-3">
-                            <label for="direccion" class="form-label">Imagen</label>
-                            <input type="file" class="form-control" id="direccion" name="imagen">
-                        </div>
-
-                        <!-- //*Total -->
-                        <div class="mb-3">
-                            <label for="direccion" class="form-label">Total</label>
-                            <input type="number" class="form-control" id="direccion" name="total_pedido">
-                        </div>
-
-                        <!-- //*Descripcion -->
-                        <div class="mb-3">
-                            <label for="direccion" class="form-label">Descripcion</label>
-                            <textarea type="text" class="form-control" id="direccion" name="descripcion"></textarea>
-                        </div>
-
-                        <button type="submit" style="background-color: #97DBAE; border: none; box-shadow: 2px 2px 5px #999;" class="btn btn-success">Guardar</button>
-                    </form>
+                    @livewire('form-pedido')
                 </div>
             </div>
         </div>
