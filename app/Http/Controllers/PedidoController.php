@@ -15,6 +15,20 @@ class PedidoController extends Controller
     public function index(){
         $clients = Cliente::all();
         $ruta = Route::currentRouteName();
+        $pedidos = Pedido::all();
+        
+        //date_default_timezone_set("America/Santigo");
+        $fecha_actual = date('d-m-y');
+        dd($fecha_actual);
+
+        foreach($pedidos->all() as $pedido){
+            dd($pedido->start);
+        }
+
+        // if (fecha_entrega <= fecha_actual){
+
+        // };
+
         return view('emideli.registrar_pedido', compact('clients', 'ruta'));
     }
 
@@ -22,6 +36,17 @@ class PedidoController extends Controller
         $pedido = new Pedido();
         $ganancia = new Ganancia();
 
+        $request->validate([
+            'tipo_pedido'=>'required',
+            'nombre_cliente'=>'required',
+            'abono'=>'required',
+            'fecha_entrega'=>'required',
+            'total_pedido'=>'required',
+            'descripcion'=>'required'
+        ]);
+
+        $pedido = new Pedido();
+        
         if ($request->abono > $request->total_pedido){
             return redirect('/pedido')->with('muchaplata', 'El abono no debe ser mayor al total del pedido');
         };
@@ -57,7 +82,6 @@ class PedidoController extends Controller
     public function show(){
         $pedidos = Pedido::all();
         return $pedidos;
-
     }
 
     public function pedido_id($id){

@@ -1,7 +1,9 @@
 <?php
 
 use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\UserController;
@@ -9,6 +11,7 @@ use App\Http\Controllers\GananciaController;
 use App\Http\Controllers\WebServiceController;
 use App\Models\Ganancia;
 use App\Http\Livewire\RegistrarCliente;
+use App\Notifications\TestNotification;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +23,11 @@ use App\Http\Livewire\RegistrarCliente;
 |
 */
 
+
+
 Route::get('/', function () {
+    
+    Notification::route('mail', 'gustavo.ovalle.emideli@emideli.online')->notify(new TestNotification());
     return view('welcome');
 });
 
@@ -29,9 +36,7 @@ Route::controller(UserController::class)->group(function(){
     Route::post('/login',[UserController::class, 'login'])->name('login_ingresar')->middleware('guest');
 
     Route::post('/logout',[UserController::class, 'logout'])->name('logout');
-    
 });
-
 Route::controller(PedidoController::class)->middleware('auth')->group(function(){
     Route::get('/pedido', [PedidoController::class, 'index'])->name('pedido');
     Route::get('/pedido/cargar', [PedidoController::class, 'show']);
@@ -41,7 +46,6 @@ Route::controller(PedidoController::class)->middleware('auth')->group(function()
 
     Route::get('/pedido/{id}', [PedidoController::class, 'pedido_id'])->name('pedido_id');
 });
-
 Route::controller(ClienteController::class)->middleware('auth')->group(function(){
     Route::get('/cliente',[ClienteController::class, 'index'])->name('cliente');
     // Route::post('/cliente/registro', [ClienteController::class, 'create'])->name('registro_cliente');
