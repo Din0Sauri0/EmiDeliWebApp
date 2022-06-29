@@ -5,8 +5,7 @@
         <div class="mb-3">
             <!-- //TODO Agregar tipo pedido aqui -->
             <select wire:model="tipo_pedido" class="form-select @error('tipo_pedido') is-invalid @enderror" name="tipo_pedido">
-                <option selected disabled>--Selecciones una opcion--</option>
-                <option value="Predeterminado">defecto</option>
+                <option hidden selected>--Selecciones una opcion--</option>
                 <option value="Personalizada">Personalizada</option>
                 <option value="Predeterminado">Predeterminado</option>
             </select>
@@ -19,18 +18,22 @@
             <label for="contacto" class="form-label">Cliente</label>
             <div class="input-group mb-3">
                 <div class="input-group-text">
-                    <input class="form-check-input mt-0" type="checkbox" value="" id="type_field">
+                    <input wire:model="check" class="form-check-input mt-0" type="checkbox" id="type_field">
                 </div>
-                <input type="text" class="form-control" name="nombre_cliente" id="name_client_txt" placeholder="Nuevo cliente">
+                @if($check)
+                <input wire:model="title" type="text" class="form-control @error('title') is-invalid @enderror" name="nombre_cliente" id="name_client_txt" placeholder="Nuevo cliente">
+                @error('title') <span class="invalid-feedback">{{$message}}</span> @enderror
+                @else
+                <select wire:model="title" class="form-select @error('title') is-invalid @enderror" name="nombre_cliente" id="name_client_dropbox">
+                    <option selected hidden>--Selecciones una opcion--</option>
+                    @foreach ($clients->all() as $client)
+                    <option value="{{$client->nombre}}">{{$client->nombre}}</option>
+                    @endforeach
+                </select>
+                @error('title') <span class="invalid-feedback">{{$message}}</span> @enderror
+                @endif
             </div>
-
-            <select wire:model="title" class="form-select @error('title') is-invalid @enderror" name="nombre_cliente" id="name_client_dropbox">
-                <option selected disabled>--Selecciones una opcion--</option>
-                @foreach ($clients->all() as $client)
-                <option value="{{$client->nombre}}">{{$client->nombre}}</option>
-                @endforeach
-            </select>
-            @error('title') <span class="invalid-feedback">{{$message}}</span> @enderror
+            
         </div>
 
         <!-- //*Abono pedido -->

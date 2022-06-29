@@ -22,14 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     location.href = 'http://127.0.0.1:8000/pedido/'+id;
                 };
             });
-
-            // formulario.reset();
-            // formulario.start.value = info.dateStr;
-            // formulario.end.value = info.dateStr;
-
         }
-
-
     });
     calendar.render();
 });

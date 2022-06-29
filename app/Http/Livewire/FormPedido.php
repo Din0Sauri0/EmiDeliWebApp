@@ -11,6 +11,8 @@ class FormPedido extends Component
 {
     use WithFileUploads;
 
+    public $check = false;
+
     public $tipo_pedido;
     public $title;
     public $abono;

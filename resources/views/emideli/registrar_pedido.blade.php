@@ -59,6 +59,6 @@ Agregar Pedido
 
 
 
-<script src="{{ asset("js/disable_field.js") }}"></script>
+<!-- <script src="{{ asset("js/disable_field.js") }}"></script> -->
 
 @endsection
