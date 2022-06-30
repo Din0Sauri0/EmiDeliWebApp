@@ -1,7 +1,7 @@
 <div>
-    <form wire:model="tipo_pedido" enctype="multipart/form-data">
+    <form wire:submit.prevent="save" enctype="multipart/form-data">
         @csrf
-        <select class="form-select" name="tipo_pedido">
+        <select wire:model="tipo_pedido" class="form-select" name="tipo_pedido">
             <option selected>{{$pedido->tipo_pedido}}</option>
             @if ($pedido->tipo_pedido == "Personalizada")
             <option value="Predeterminado">Predeterminado</option>
@@ -30,7 +30,7 @@
 
         <div class="mb-3">
             <label for="imagen" class="form-label">Imagen</label>
-            <input type="file" class="form-control" id="direccion" name="imagen">
+            <input wire:model="imagen" type="file" class="form-control" id="direccion" name="imagen">
         </div>
 
         <div class="mb-3">
@@ -42,6 +42,6 @@
             <label for="direccion" class="form-label">Descripcion</label>
             <textarea wire:model="descripcion" type="text" class="form-control" id="direccion" name="descripcion"></textarea>
         </div>
-        <button type="submit" style="background-color: #97DBAE; border: none; color:black; box-shadow: 2px 2px 5px #999;" class="btn btn-success">Guardar</button>
+        <button wire:submit.prevent="save" type="submit" style="background-color: #97DBAE; border: none; color:black; box-shadow: 2px 2px 5px #999;" class="btn btn-success">Guardar</button>
     </form>
 </div>
