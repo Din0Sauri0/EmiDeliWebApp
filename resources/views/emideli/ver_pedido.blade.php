@@ -35,7 +35,7 @@ Agregar Pedido
                     <!-- //*Fecha de entrega -->
                     <div class="mb-3">
                         <label class="size card-text"><b>Fecha de entrega.</b></label>
-                        <p class="sub-size">{{$pedido->end}}</p>
+                        <p class="sub-size">{{$pedido->start}}</p>
                     </div>
 
                     <!-- //*Total -->
@@ -63,9 +63,9 @@ Agregar Pedido
         </div>
 
         <div class="col mb-4">
-            <div class="card-body">
-                <label class="size card-text"><b>Imagen.</b></label>
-                <img src="{{ asset($pedido->imagen) }}" class="img-fluid img-thumbnail" alt="Default image">
+            <div class="card-body d-flex" style="display:flex; flex-direction:column;">
+                <label class="size card-text mb-2"><b>Imagen.</b></label>
+                <img src="{{ asset($pedido->imagen) }}" style="max-height:500px" class="img-fluid img-thumbnail" alt="Default image">
             </div>
             
         </div>

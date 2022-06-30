@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Ganancia extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'mes',
+        'year',
+        'total',
+        'user_id',
+    ];
 }

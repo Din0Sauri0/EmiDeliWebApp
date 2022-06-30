@@ -23,9 +23,9 @@ class FormEditPedido extends Component
     protected $rules = [
         'tipo_pedido' => 'required',
         'abono' => 'required',
-        'start' => 'required',
+        'start' => 'required|after:today',
         'imagen' => 'nullable',
-        'total' => 'required',
+        'total' => 'required|gt:abono',
         'descripcion' => 'required',
     ];
 

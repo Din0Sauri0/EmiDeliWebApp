@@ -3,13 +3,17 @@
 namespace App\Http\Livewire;
 
 use App\Models\Cliente;
+use App\Models\Ganancia;
 use App\Models\Pedido;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class FormPedido extends Component
 {
     use WithFileUploads;
+    
 
     public $check = false;
 
@@ -26,9 +30,9 @@ class FormPedido extends Component
         'tipo_pedido' => 'required',
         'title' => 'required',
         'abono' => 'required',
-        'start' => 'required',
-        'imagen' => 'required',
-        'total' => 'required',
+        'start' => 'required|after:today',
+        'imagen' => 'nullable',
+        'total' => 'required|gt:abono',
         'descripcion' => 'required',
     ];
 
@@ -50,6 +54,24 @@ class FormPedido extends Component
             'total' => $this->total,
             'descripcion' => $this->descripcion,       
         ]);
+        $ganancia = new Ganancia();
+        
+        $date = Carbon::parse($this->start);
+        $month = $date->format('m');
+        $year = $date->format('Y');
+        Ganancia::create([
+            'mes' => $month,
+            'year' => $year,
+            'total' => $this->total,
+            'user_id' => Auth::id()
+
+        ]);
+        // $ganancia->mes = $month;
+        // $ganancia->year = $year;
+        // dd(intval($this->total));
+        // $ganancia->total = intval($$this->total);
+        // $ganancia->user_id = Auth::id();
+        // $ganancia->save();
         return redirect('/pedido');
     }
 

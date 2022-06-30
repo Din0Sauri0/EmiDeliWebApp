@@ -39,7 +39,7 @@
         <!-- //*Abono pedido -->
         <div class="mb-3">
             <label for="abono" class="form-label">Abono</label>
-            <input wire:model="abono" type="number" class="form-control @error('abono') is-invalid @enderror" id="abono" name="abono">
+            <input wire:model="abono" type="number" min="1" class="form-control @error('abono') is-invalid @enderror" id="abono" name="abono">
             @error('abono') <span class="invalid-feedback">{{$message}}</span> @enderror
         </div>
 
@@ -60,7 +60,7 @@
         <!-- //*Total -->
         <div class="mb-3">
             <label for="total_pedido" class="form-label">Total</label>
-            <input wire:model="total" type="number" class="form-control @error('total') is-invalid @enderror" id="total_pedido" name="total_pedido">
+            <input wire:model="total" type="number" min="1" class="form-control @error('total') is-invalid @enderror" id="total_pedido" name="total_pedido">
             @error('total') <span class="invalid-feedback">{{$message}}</span> @enderror
         </div>
 
