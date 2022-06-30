@@ -7,6 +7,7 @@ use App\Models\Pedido;
 use App\Models\Cliente;
 use App\Models\Ganancia;
 use Carbon\Carbon;
+use DateTime;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; 
@@ -15,26 +16,24 @@ use Illuminate\Support\Facades\Route;
 class PedidoController extends Controller
 {
     public function index(){
+        date_default_timezone_set('America/Santiago');
         $clients = Cliente::all();
         $ruta = Route::currentRouteName();
         $pedidos = Pedido::all();
         
-        //$fecha_actual = Carbon::now();
-        //dd($fecha_actual->format('Y-m-d'));
         foreach($pedidos->all() as $pedido){
-            $date = date('d-m-y');
-            $date1 = strtotime($date. '+5 days');
-            //dd($date1);
-            //$diferencia = $fecha_actual->diffInDays($pedido->start);
-            if(strtotime('+ 5 days') == $pedido->start){
-                dd(strtotime('+ 5 days'));
-                Notification::route('mail', 'gustavo.ovalle.emideli@emideli.online')->notify(new TestNotification($pedido->title));
+            
+            $fecha_actual = new DateTime("now");
+            $fecha_pedido = date_create($pedido->start);
+            $diferencia = date_diff($fecha_actual, $fecha_pedido);
+            $dif_dia = intval($diferencia->format('%a'));
+            if($fecha_pedido >= $fecha_actual){
+                if ($dif_dia == 4 or $dif_dia == 0){
+                    Notification::route('mail', 'gustavo.ovalle.emideli@emideli.online')->notify(new TestNotification($pedido->title, $pedido->start, $pedido->id));
+                }
             }
 
         }
-
-        
-
         return view('emideli.registrar_pedido', compact('clients', 'ruta'));
     }
 
