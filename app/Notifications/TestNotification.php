@@ -11,15 +11,19 @@ class TestNotification extends Notification
 {
     use Queueable;
     protected $title;
+    protected $start;
+    public $id;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(String $title)
+    public function __construct(String $title, String $start, Int $id)
     {
         $this->title = $title;
+        $this->start = $start;
+        $this->id = $id;
         //
     }
 
@@ -43,10 +47,9 @@ class TestNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->line($this->title)
-                    ->action('Notification Action', url('/pedido'))
-                    ->line('Thank you for using our application!');
+                    ->line('El pedido del siguiente cliente está cerca de su fecha de entrega: '.$this->title)
+                    ->line('Debes entregarlo antes del '.$this->start)
+                    ->action('Ir al pedido', url('/pedido/'.$this->id));
     }
 
     /**
