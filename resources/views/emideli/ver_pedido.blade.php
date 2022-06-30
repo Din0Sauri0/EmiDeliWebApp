@@ -101,50 +101,7 @@ Agregar Pedido
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('actualizar_pedido', $pedido->id)}}" method='POST' enctype="multipart/form-data">
-                    @csrf
-                    <select class="form-select" name="tipo_pedido">
-                        <option selected value="{{$pedido->tipo_pedido}}">{{$pedido->tipo_pedido}}</option>
-                        @if ($pedido->tipo_pedido == "Personalizada")
-                            <option value="Predeterminado">Predeterminado</option>
-                        @else
-                            <option value="Personalizada">Personalizada</option>
-                        @endif
-                    </select>
-
-                    <div class="mb-3">
-                        <label for="nombre_cliente" class="form-label">Cliente</label>
-                        <div class="input-group mb-3">
-                            <input readonly value="{{$pedido->title}}" type="text" class="form-control" name="nombre_cliente" id="name_client_txt" placeholder="Nuevo cliente">
-                        </div>
-                    </div>
-             
-                    <div class="mb-3">
-                        <label for="abono" class="form-label">Abono</label>
-                        <input type="number" class="form-control" id="contacto" name="abono" value="{{$pedido->abono}}">
-                    </div>
-            
-                    <div class="mb-3">
-                        <label for="fecha_entrega" class="form-label">Fecha de entrega</label>
-                        <input type="date" class="form-control" id="direccion" name="fecha_entrega" value="{{$pedido->start}}">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="imagen" class="form-label">Imagen</label>
-                        <input type="file" class="form-control" id="direccion" name="imagen">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="total_pedido" class="form-label">Total</label>
-                        <input type="number" class="form-control" id="direccion" name="total_pedido" value="{{$pedido->total}}">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="direccion" class="form-label">Descripcion</label>
-                        <textarea type="text" class="form-control" id="direccion" name="descripcion">{{$pedido->descripcion}}</textarea>
-                    </div>
-                        <button type="submit" style="background-color: #97DBAE; border: none; color:black; box-shadow: 2px 2px 5px #999;" class="btn btn-success">Guardar</button>
-                </form>
+                @livewire('form-edit-pedido', ['pedido' => $pedido])
             </div>
         </div>
     </div>

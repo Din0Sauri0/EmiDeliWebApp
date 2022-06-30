@@ -27,7 +27,7 @@ use App\Notifications\TestNotification;
 
 Route::get('/', function () {
     
-    Notification::route('mail', 'gustavo.ovalle.emideli@emideli.online')->notify(new TestNotification());
+
     return view('welcome');
 });
 

@@ -10,14 +10,16 @@ use Illuminate\Notifications\Notification;
 class TestNotification extends Notification
 {
     use Queueable;
+    protected $title;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(String $title)
     {
+        $this->title = $title;
         //
     }
 
@@ -42,7 +44,8 @@ class TestNotification extends Notification
     {
         return (new MailMessage)
                     ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
+                    ->line($this->title)
+                    ->action('Notification Action', url('/pedido'))
                     ->line('Thank you for using our application!');
     }
 

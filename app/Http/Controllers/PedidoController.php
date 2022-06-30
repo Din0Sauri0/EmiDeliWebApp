@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\TestNotification;
 use App\Models\Pedido;
 use App\Models\Cliente;
 use App\Models\Ganancia;
 use Carbon\Carbon;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; 
 use Illuminate\Support\Facades\Route;
@@ -17,17 +19,21 @@ class PedidoController extends Controller
         $ruta = Route::currentRouteName();
         $pedidos = Pedido::all();
         
-        //date_default_timezone_set("America/Santigo");
-        $fecha_actual = date('d-m-y');
-        dd($fecha_actual);
-
+        //$fecha_actual = Carbon::now();
+        //dd($fecha_actual->format('Y-m-d'));
         foreach($pedidos->all() as $pedido){
-            dd($pedido->start);
+            $date = date('d-m-y');
+            $date1 = strtotime($date. '+5 days');
+            //dd($date1);
+            //$diferencia = $fecha_actual->diffInDays($pedido->start);
+            if(strtotime('+ 5 days') == $pedido->start){
+                dd(strtotime('+ 5 days'));
+                Notification::route('mail', 'gustavo.ovalle.emideli@emideli.online')->notify(new TestNotification($pedido->title));
+            }
+
         }
 
-        // if (fecha_entrega <= fecha_actual){
-
-        // };
+        
 
         return view('emideli.registrar_pedido', compact('clients', 'ruta'));
     }
